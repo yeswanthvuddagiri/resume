@@ -308,46 +308,42 @@
 
           </div>
 
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
+         <div class="col-lg-8">
+  <form name="contact" method="POST" data-netlify="true" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+    <input type="hidden" name="form-name" value="contact" />
+    <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
+      <div class="col-md-6">
+        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
       </div>
 
+      <div class="col-md-6">
+        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+      </div>
+
+      <div class="col-md-12">
+        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+      </div>
+
+      <div class="col-md-12">
+        <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
+      </div>
+
+      <div class="col-md-12 text-center">
+        <div class="loading">Loading</div>
+        <div class="error-message"></div>
+        <div class="sent-message">Your message has been sent. Thank you!</div>
+
+        <button type="submit">Send Message</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+        </div>
+      </div>
     </section><!-- /Contact Section -->
-
   </main>
-
   <footer id="footer" class="footer light-background">
     <div class="container">
       <h3 class="sitename">Yeswanth</h3>
@@ -355,20 +351,12 @@
         <a href="https://www.instagram.com/yeswanth_vuddagiri/"><i class="bi bi-instagram"></i></a>
         <a href="https://linkedin.com/in/yeswanth-vuddagiri-03928b238"><i class="bi bi-linkedin"></i></a>
         <a href=" https://github.com/yeswanthvuddagiri"><i class="bi bi-github"></i></a>
-       
-
-        
-
       </div>
       <div class="container">
         <div class="copyright">
           <span>Copyright</span> <strong class="px-1 sitename">Yeswanth</strong> <span>All Rights Reserved</span>
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         </div>
       </div>
     </div>
@@ -379,17 +367,6 @@
 
   <!-- Preloader -->
   <div id="preloader"></div>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
