@@ -309,37 +309,72 @@
           </div>
 
          <div class="col-lg-8">
- <form name="contact" method="POST" data-netlify="true" action="#" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-
-    <input type="hidden" name="form-name" value="contact" />
-    <div class="row gy-4">
-
-      <div class="col-md-6">
-        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-      </div>
-
-      <div class="col-md-6">
-        <input type="email" name="email" class="form-control" placeholder="Your Email" required>
-      </div>
-
-      <div class="col-md-12">
-        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-      </div>
-
-      <div class="col-md-12">
-        <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
-      </div>
-
-      <div class="col-md-12 text-center">
-        <div class="loading">Loading</div>
-        <div class="error-message"></div>
-        <div class="sent-message">Your message has been sent. Thank you!</div>
-
-        <button type="submit">Send Message</button>
-      </div>
+ <form name="contact" id="contact-form" method="POST" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+  <input type="hidden" name="form-name" value="contact" />
+  
+  <div class="row gy-4">
+    <div class="col-md-6">
+      <input type="text" name="name" class="form-control" placeholder="Your Name" required>
     </div>
-  </form>
-</div>
+
+    <div class="col-md-6">
+      <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+    </div>
+
+    <div class="col-md-12">
+      <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+    </div>
+
+    <div class="col-md-12">
+      <textarea name="message" class="form-control" rows="3" placeholder="Message" required></textarea>
+    </div>
+
+    <div class="col-md-12 text-center">
+      <div class="loading" style="display: none;">Loading...</div>
+      <div class="error-message" style="display: none; color: red;"></div>
+      <div class="sent-message" style="display: none; color: green;">Your message has been sent. Thank you!</div>
+
+      <button type="submit">Send Message</button>
+    </div>
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById('contact-form');
+  const loading = document.querySelector('.loading');
+  const errorMsg = document.querySelector('.error-message');
+  const sentMsg = document.querySelector('.sent-message');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loading.style.display = 'block';
+    errorMsg.style.display = 'none';
+    sentMsg.style.display = 'none';
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      });
+
+      if (response.ok) {
+        loading.style.display = 'none';
+        sentMsg.style.display = 'block';
+        form.reset();
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      loading.style.display = 'none';
+      errorMsg.style.display = 'block';
+      errorMsg.textContent = error.message;
+    }
+  });
+</script>
+
 
         </div>
       </div>
